@@ -1,10 +1,7 @@
 package de.swirtz.devoxxuk.infix
 
+// @formatter:off
 
-/**
- * We learn titled concepts like reified generic types, lambdas with receiver, DSLs, built-in delegation,
- * infix functions, operator overloading, destructuring and more.
- */
 
 
 //What is `to`?
@@ -14,6 +11,29 @@ val devoxxCities = mapOf(
     "ukraine" to "kyiv"
     //more
 )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //More explicit
 val devoxxCities2 = mapOf(
@@ -43,7 +63,8 @@ fun <T> List<T>.combineWith(other: List<T>): List<T> {
 
 
 fun main(args: Array<String>) {
-    val all = listOf(1, 2, 3, 4, 5).combineWith(listOf(5, 6, 7, 8))
+    val all =
+        listOf(1, 2, 3, 4, 5).combineWith(listOf(5, 6, 7, 8))
     println(all)
 }
 

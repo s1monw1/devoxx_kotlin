@@ -1,4 +1,3 @@
-import org.jetbrains.kotlin.gradle.dsl.Coroutines
 import org.jetbrains.kotlin.gradle.plugin.KotlinPluginWrapper
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
@@ -11,7 +10,12 @@ plugins {
 
 tasks.withType<KotlinCompile> {
     kotlinOptions.jvmTarget = "1.8"
+    kotlinOptions.freeCompilerArgs += listOf(
+        "-XXLanguage:+InlineClasses,+Contracts",
+        "-Xuse-experimental=kotlin.contracts.ExperimentalContracts"
+    )
 }
+
 
 dependencies {
     compile(kotlin("stdlib-jdk8", kotlinVersion))
@@ -19,6 +23,8 @@ dependencies {
     compile("org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinxCoroutinesVersion")
     compile("org.slf4j:slf4j-api:1.7.14")
     compile("ch.qos.logback:logback-classic:1.1.3")
+    compile("com.fasterxml.jackson.module:jackson-module-kotlin:2.9.8")
+
     testCompile(kotlin("test-junit", kotlinVersion))
     testCompile("junit:junit:4.11")
 }
