@@ -2,14 +2,18 @@ package de.swirtz.devoxxuk.generics
 
 // @formatter:off
 
-//java has scary wildcards: List<? super String> or Collection<? extends Object>
+//java has scary wildcards: List<? super String> or
+//Collection<? extends Object>
+
 //used to specify variance, e.g. List<String> is a subtype of List<Object>
-//you can't just assign an object of `List<String>` to a variable of type `List<Object>`
+//you can't just assign an object of `List<String>`
+//to a variable of type `List<Object>`
 
 //Effective Java by Joshua Bloch: Producer-Extends, Consumer-Super
 
 //Kotlin has declaration-site variance (Java does not, only use-site)
-//sometimes it's clear that specific types are only gonna be used as producers or consumers of a generic type T
+//sometimes it's clear that specific types are only gonna be used
+//as producers or consumers of a generic type T
 
 interface SourceOf<out T> {
     fun get(): T
@@ -29,7 +33,8 @@ val source = object : SourceOf<Int> {
 
 val numberSource: SourceOf<Number> = source
 
-val fromSource = numberSource.get() //we get a number, we don't care which subtype exactly
+val fromSource = numberSource.get()
+//we get a number, we don't care which subtype exactly
 
 
 fun takeNumberSource(src: SourceOf<Number>) = src.get()
@@ -38,7 +43,7 @@ fun takeNumberSource(src: SourceOf<Number>) = src.get()
 val invoked = takeNumberSource(source)
 
 
-//SourceOf is "covariant in the type paramter T"
+//SourceOf is "covariant in the type parameter T"
 
 
 

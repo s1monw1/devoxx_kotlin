@@ -12,7 +12,10 @@ fun authenticate(user: String, password: String) {}
 
 fun useAuthenticate(){
     authenticate("paul", "123456")
+    authenticate("123456", "paul")
 }
+
+
 
 
 
@@ -33,29 +36,32 @@ fun authenticate(user: Name, password: Password) {}
 fun useAuthenticateInline(){
     //more type safety
     authenticate(Name("paul"), Password("123456"))
+    //authenticate(Password("123456"),Name("paul"))
 }
 
 
 /**
  * parses number into BigDecimal with a scale of 2
  */
-fun parseNumber(string: String): BigDecimal {
-    return string.toBigDecimal().setScale(2, RoundingMode.HALF_UP)
+fun parseNumber(number: String): BigDecimal {
+    return number.toBigDecimal().setScale(2, RoundingMode.HALF_UP)
 }
 
 
 
 inline class ParsedNumber(val original: String) {
+
     val parsed: BigDecimal
         get() = original.toBigDecimal().setScale(2, RoundingMode.HALF_UP)
 }
 
-fun parseNumber2(string: String): ParsedNumber {
-    return ParsedNumber(string)
+fun parseNumber2(number: String): ParsedNumber {
+    return ParsedNumber(number)
 }
 
 fun main() {
     println(parseNumber2("100.12212").parsed)
     println(parseNumber2("100.145").parsed)
     println(parseNumber2("100.0").parsed)
+    println(parseNumber2("100.0").original)
 }

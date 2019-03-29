@@ -40,16 +40,17 @@ fun main(args: Array<String>) {
     devoxx.addTalk(t1)
     devoxx.addTalk(t2)
 
-    //we can use apply and similar to make this cleaner. But we want to go a step further
+
+
+    //we can use apply and similar to make this cleaner.
+    //But we want to go a step further
 
 
     conference {
         name = "Devoxx UK 2019"
         location = "London"
 
-
         talks {
-
             conferenceTalk("Topic2", "Speaker2", LocalDateTime.parse("2018-05-07T15:00"))
             keynoteTalk("Topic2", "Speaker2", LocalDateTime.parse("2018-05-07T15:00"))
 
@@ -57,7 +58,6 @@ fun main(args: Array<String>) {
             keynoteTalk at "2018-05-07T15:00" by "Speaker2" titled "Topic2"
 
             +Talk("Topic2", "Speaker2", LocalDateTime.parse("2018-05-07T15:00"), TalkType.CONFERENCE)
-
         }
 
         talks.conferenceTalk("Topic2", "Speaker2", LocalDateTime.parse("2018-05-07T15:00"))

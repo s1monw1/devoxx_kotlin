@@ -4,7 +4,7 @@ package de.swirtz.devoxxuk.operators
 
 //Operators and conventions
 
-data class NumericHolder(val a: Int, val b: Int) :Comparable<NumericHolder>{
+data class NumericHolder(val a: Int, val b: Int): Comparable<NumericHolder>{
     override fun compareTo(other: NumericHolder): Int {
         TODO("not implemented")
     }
@@ -33,7 +33,9 @@ operator fun NumericHolder.plus(other: NumericHolder): NumericHolder {
     return NumericHolder(a + other.a, b + other.b)
 }
 
-var plus = NumericHolder(1, 2) + NumericHolder(2, 3)
+
+
+var added = NumericHolder(1, 2) + NumericHolder(2, 3)
 
 
 
@@ -42,7 +44,7 @@ operator fun NumericHolder.minus(other: NumericHolder): NumericHolder {
 }
 
 
-val minus = NumericHolder(1, 2) - NumericHolder(2, 3)
+val subtracted = NumericHolder(1, 2) - NumericHolder(2, 3)
 
 
 
@@ -51,7 +53,7 @@ operator fun NumericHolder.inc(): NumericHolder {
     return NumericHolder(a + 1, b + 1)
 }
 
-val incremented = plus++
+val incremented = added++
 
 
 
@@ -59,7 +61,7 @@ operator fun NumericHolder.dec(): NumericHolder {
     return NumericHolder(a - 1, b - 1)
 }
 
-val dec = plus--
+val dec = added--
 
 
 
@@ -71,6 +73,8 @@ operator fun NumericHolder.get(i: Int): Int {
     }
 }
 
+
+
 val firstPart = NumericHolder(1, 2)[1]
 
 
@@ -78,7 +82,7 @@ operator fun NumericHolder.contains(i: Int): Boolean {
     return a == i || b == i
 }
 
-val pred = 5 !in plus
+val pred = 5 !in added
 
 
 
@@ -89,22 +93,22 @@ operator fun NumericHolder.invoke() {
 }
 
 
-val invoked = plus()
+val invoked = added()
 //                      ^ that's how lambdas work
 
 
 
 
 
-operator fun NumericHolder.compareTo(other: NumericHolder): Int {
-    return (a + b).compareTo(other.a + other.b)
-}
+//operator fun NumericHolder.compareTo(other: NumericHolder): Int {
+//    return (a + b).compareTo(other.a + other.b)
+//}
 
 
-val great = plus > minus
-val greatEq = plus >= minus
-val less = plus < minus
-val lessEq = plus <= minus
+val great = added > subtracted
+val greatEq = added >= subtracted
+val less = added < subtracted
+val lessEq = added <= subtracted
 
 
 operator fun ClosedRange<NumericHolder>.iterator() =
@@ -123,7 +127,7 @@ operator fun ClosedRange<NumericHolder>.iterator() =
 
 fun main(args: Array<String>) {
 
-    val holderRange = minus..plus
+    val holderRange = subtracted..added
     println("printing range")
     for (e in holderRange) {
         println(e)
@@ -135,8 +139,9 @@ fun main(args: Array<String>) {
 
 
 
-
+    //TODO could save time here
     //destructuring convention: componentX
+    val (a,b) = subtracted
 
     val predicate = SpecialStringPredicate()
     predicate("string123")

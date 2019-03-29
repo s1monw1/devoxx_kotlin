@@ -5,10 +5,10 @@ import kotlin.properties.ReadWriteProperty
 import kotlin.reflect.KProperty
 
 // @formatter:off
+//  ***************************************
+//  Delegated Properties: delegating accessor logic to some helper
+//  ***************************************
 
-/**
- * Delegated Properties: delegating accessor logic to some helper
- */
 class DelegationDemo {
 
     init {
@@ -75,7 +75,10 @@ class DelegationDemo {
 
 fun <T> modified(initValue: T, modifier: (T) -> T) = ModifiedDelegate(initValue, modifier)
 
-class ModifiedDelegate<T>(val initValue: T, val modifier: (T) -> T) : ReadWriteProperty<Any?, T> {
+class ModifiedDelegate<T>(
+    private val initValue: T,
+    val modifier: (T) -> T
+): ReadWriteProperty<Any?, T> {
 
     private var _current = modifier(initValue)
 

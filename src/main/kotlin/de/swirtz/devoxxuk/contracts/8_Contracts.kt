@@ -19,11 +19,15 @@ fun process(data: List<String>?) {
 
 
 
+
         val someElement: String
         data.let {
             //someElement = it.last()
         }
+
+
     }
+
 }
 
 
@@ -73,9 +77,3 @@ inline fun <T, R> T.letContract(block: (T) -> R): R {
     }
     return block(this)
 }
-
-
-
-
-
-

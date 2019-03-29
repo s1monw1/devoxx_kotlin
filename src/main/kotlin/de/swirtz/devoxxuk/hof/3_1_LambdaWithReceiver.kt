@@ -4,9 +4,10 @@ package de.swirtz.devoxxuk.hof
 
 
 
-fun <T> List<T>.doStuff(ops: List<T>.() -> Unit) {
+fun <T> List<T>.doStuff(ops: (List<T>) -> Unit) {
     ops(this)
 }
+
 
 
 
@@ -24,9 +25,9 @@ fun <T> List<T>.doStuff(ops: List<T>.() -> Unit) {
 fun main(args: Array<String>) {
     val lst = listOf(1, 2, 3)
     lst.doStuff {
-        println(size)
-        println(first())
-        println(last())
+        println(it.size)
+        println(it.first())
+        println(it.last())
     }
 
 
@@ -39,24 +40,3 @@ fun main(args: Array<String>) {
     }
 
 }
-
-
-/**
- * Change to this
- *
- * Pull parameter out of parentheses to make it an "extension function type"
- *
- *
-    fun <T> List<T>.doStuff(ops: List<T>.() -> Unit) {
-    this.ops()
-    }
-
-    fun main(args: Array<String>) {
-    listOf(1, 2, 3).doStuff {
-    println(size)
-    println(first())
-    println(last())
-    }
-    }
- */
-
