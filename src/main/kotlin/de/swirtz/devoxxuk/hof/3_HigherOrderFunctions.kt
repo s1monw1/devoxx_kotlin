@@ -8,15 +8,6 @@ import java.util.concurrent.locks.ReentrantLock
 
 
 
-//Presentation:
-// 1) Show HOF without inline, add inline and describe it
-// 2) Demonstrate illegal use of inline with assigning function and introduce noinline
-// 3) Show extension HOF
-
-
-
-
-
 
 typealias IntMapper = (Int) -> Int
 

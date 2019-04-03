@@ -22,7 +22,9 @@ fun <T> List<T>.doStuff(ops: (List<T>) -> Unit) {
 
 
 
-fun main(args: Array<String>) {
+
+
+fun main() {
     val lst = listOf(1, 2, 3)
     lst.doStuff {
         println(it.size)

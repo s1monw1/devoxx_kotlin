@@ -5,6 +5,8 @@ import kotlin.properties.ReadWriteProperty
 import kotlin.reflect.KProperty
 
 // @formatter:off
+
+
 //  ***************************************
 //  Delegated Properties: delegating accessor logic to some helper
 //  ***************************************
@@ -67,16 +69,12 @@ class DelegationDemo {
 
 
     var customDelegated by ModifiedDelegate(100) { it * 10 }
-    var customDelegated2 by modified(100) { it * 10 }
 
 }
 
 
-
-fun <T> modified(initValue: T, modifier: (T) -> T) = ModifiedDelegate(initValue, modifier)
-
 class ModifiedDelegate<T>(
-    private val initValue: T,
+    initValue: T,
     val modifier: (T) -> T
 ): ReadWriteProperty<Any?, T> {
 

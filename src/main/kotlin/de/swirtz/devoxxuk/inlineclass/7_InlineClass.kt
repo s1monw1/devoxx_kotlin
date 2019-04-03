@@ -24,6 +24,8 @@ fun useAuthenticate(){
 
 
 
+
+
 inline class Name(val name: String)
 inline class Password(val pw: String)
 
@@ -41,7 +43,7 @@ fun useAuthenticateInline(){
 
 
 /**
- * parses number into BigDecimal with a scale of 2
+ * parses string number into BigDecimal with a scale of 2
  */
 fun parseNumber(number: String): BigDecimal {
     return number.toBigDecimal().setScale(2, RoundingMode.HALF_UP)

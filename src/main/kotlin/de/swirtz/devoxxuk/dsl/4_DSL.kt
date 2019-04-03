@@ -5,7 +5,6 @@ import java.time.LocalDateTime
 // @formatter:off
 
 
-//DSL with operators, receivers, inline and infix
 
 
 class Conference(val name: String, val location: String) {
@@ -89,7 +88,7 @@ class ConferenceDSL() {
     val talks = TalkConfigDSL(talkList)
 
     @ConfDslMarker
-    class TalkConfigDSL(private val talks: MutableList<Talk>) {
+    class TalkConfigDSL(private val talkList: MutableList<Talk>) {
 
 
         operator fun invoke(config: TalkConfigDSL.() -> Unit) {
@@ -102,21 +101,21 @@ class ConferenceDSL() {
 
 
         fun conferenceTalk(topic: String, speaker: String, time: LocalDateTime) {
-            talks.add(Talk(topic, speaker, time, TalkType.CONFERENCE))
+            talkList.add(Talk(topic, speaker, time, TalkType.CONFERENCE))
         }
 
 
 
         fun keynoteTalk(topic: String, speaker: String, time: LocalDateTime) {
-            talks.add(Talk(topic, speaker, time, TalkType.KEYNOTE))
+            talkList.add(Talk(topic, speaker, time, TalkType.KEYNOTE))
         }
 
 
 
         val conferenceTalk
-            get() = EmptyTalk(talks, TalkType.CONFERENCE)
+            get() = EmptyTalk(talkList, TalkType.CONFERENCE)
         val keynoteTalk
-            get() = EmptyTalk(talks, TalkType.KEYNOTE)
+            get() = EmptyTalk(talkList, TalkType.KEYNOTE)
 
 
         class EmptyTalk(
@@ -153,7 +152,7 @@ class ConferenceDSL() {
 
 
          //member extension function
-        operator fun Talk.unaryPlus() = talks.add(this)
+        operator fun Talk.unaryPlus() = talkList.add(this)
 
 
 

@@ -4,7 +4,7 @@ package de.swirtz.devoxxuk.operators
 
 //Operators and conventions
 
-data class NumericHolder(val a: Int, val b: Int): Comparable<NumericHolder>{
+data class NumericHolder(val a: Int, val b: Int) : Comparable<NumericHolder>{
     override fun compareTo(other: NumericHolder): Int {
         TODO("not implemented")
     }
@@ -99,16 +99,30 @@ val invoked = added()
 
 
 
-
-//operator fun NumericHolder.compareTo(other: NumericHolder): Int {
-//    return (a + b).compareTo(other.a + other.b)
-//}
+/**
+ * Redundant since type is a `Comparable<NumericHolder> already
+ */
+operator fun NumericHolder.compareTo(other: NumericHolder): Int {
+    return (a + b).compareTo(other.a + other.b)
+}
 
 
 val great = added > subtracted
 val greatEq = added >= subtracted
 val less = added < subtracted
 val lessEq = added <= subtracted
+
+fun rangeExample(){
+
+    // uses extension operator `Comparable<T>::rangeTo`
+    val holderRange = subtracted..added
+
+
+
+    for (e in holderRange) {
+        println(e)
+    }
+}
 
 
 operator fun ClosedRange<NumericHolder>.iterator() =
@@ -125,21 +139,8 @@ operator fun ClosedRange<NumericHolder>.iterator() =
     }
 
 
-fun main(args: Array<String>) {
+fun main() {
 
-    val holderRange = subtracted..added
-    println("printing range")
-    for (e in holderRange) {
-        println(e)
-    }
-
-
-
-
-
-
-
-    //TODO could save time here
     //destructuring convention: componentX
     val (a,b) = subtracted
 
