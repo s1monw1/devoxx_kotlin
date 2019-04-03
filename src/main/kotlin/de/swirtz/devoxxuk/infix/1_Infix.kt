@@ -59,8 +59,7 @@ val devoxxCities3 = mapOf(
 
 
 //Custom function
-
-infix fun <T> List<T>.combineWith(other: List<T>): List<T> {
+fun <T> List<T>.combineWith(other: List<T>): List<T> {
     //naive implementation, improve later!
     val combined = mutableListOf<T>()
     combined.addAll(this)
