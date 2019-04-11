@@ -51,19 +51,19 @@ fun parseNumber(number: String): BigDecimal {
 
 
 
-inline class ParsedNumber(val original: String) {
+inline class ParsableNumber(val original: String) {
 
     val parsed: BigDecimal
         get() = original.toBigDecimal().setScale(2, RoundingMode.HALF_UP)
 }
 
-fun parseNumber2(number: String): ParsedNumber {
-    return ParsedNumber(number)
+fun getParseableNumber(number: String): ParsableNumber {
+    return ParsableNumber(number)
 }
 
 fun main() {
-    println(parseNumber2("100.12212").parsed)
-    println(parseNumber2("100.145").parsed)
-    println(parseNumber2("100.0").parsed)
-    println(parseNumber2("100.0").original)
+    println(getParseableNumber("100.12212").parsed)
+    println(getParseableNumber("100.145").parsed)
+    println(getParseableNumber("100.0").parsed)
+    println(getParseableNumber("100.0").original)
 }

@@ -1,5 +1,6 @@
 package de.swirtz.devoxxuk.contracts
 
+import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
@@ -45,6 +46,7 @@ fun <T> Collection<T>?.isNullOrEmpty(): Boolean {
 
 
 
+@ExperimentalContracts
 fun <T> Collection<T>?.isNullOrEmptyContract(): Boolean {
     contract {
         returns(false) implies (this@isNullOrEmptyContract != null)
@@ -71,6 +73,7 @@ inline fun <T, R> T.let(block: (T) -> R): R {
 
 
 
+@ExperimentalContracts
 inline fun <T, R> T.letContract(block: (T) -> R): R {
     contract {
         callsInPlace(block, InvocationKind.EXACTLY_ONCE)

@@ -5,7 +5,7 @@ val kotlinVersion = plugins.getPlugin(KotlinPluginWrapper::class.java).kotlinPlu
 val kotlinxCoroutinesVersion = "1.1.1"
 
 plugins {
-    kotlin("jvm") version "1.3.21"
+    kotlin("jvm") version "1.3.30"
 }
 
 tasks.withType<KotlinCompile> {
@@ -32,4 +32,8 @@ dependencies {
 repositories {
     mavenCentral()
     jcenter()
+}
+val compileKotlin: KotlinCompile by tasks
+compileKotlin.kotlinOptions {
+    freeCompilerArgs = listOf("-XXLanguage:+InlineClasses")
 }
