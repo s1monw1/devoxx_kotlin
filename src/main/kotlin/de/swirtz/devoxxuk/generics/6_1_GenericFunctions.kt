@@ -19,6 +19,15 @@ class SomeArbitraryService() {
 
 
 
+
+
+
+
+
+
+
+
+
     val log1 = logger(SomeArbitraryService::class)
 
 
@@ -76,6 +85,17 @@ fun <T : Any> logger(clazz: KClass<T>): Logger = LoggerFactory.getLogger(clazz.j
 
 inline fun <reified T : Any> logger2():Logger =
     LoggerFactory.getLogger(T::class.java)
+
+
+
+
+
+
+
+
+
+
+
 
 
 

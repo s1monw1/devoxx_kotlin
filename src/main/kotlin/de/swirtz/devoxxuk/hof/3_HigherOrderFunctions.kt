@@ -126,11 +126,10 @@ fun controlFlowLocal() {
 
 
 fun stdLibExamples() {
-    val resultOfSyncBlock =
-        synchronized(ReentrantLock()) {
-            println("do stuff")
-            "return_value"
-        }
+    synchronized(ReentrantLock()) {
+        println("do stuff")
+        "return_value"
+    }
 
     FileInputStream("path").use {
         println("do other stuff")

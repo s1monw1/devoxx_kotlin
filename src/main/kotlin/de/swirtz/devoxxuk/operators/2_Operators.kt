@@ -35,7 +35,7 @@ operator fun NumericHolder.plus(other: NumericHolder): NumericHolder {
 
 
 
-var added = NumericHolder(1, 2) + NumericHolder(2, 3)
+val added = NumericHolder(1, 2) + NumericHolder(2, 3)
 
 
 
@@ -53,7 +53,8 @@ operator fun NumericHolder.inc(): NumericHolder {
     return NumericHolder(a + 1, b + 1)
 }
 
-val incremented = added++
+var holder = NumericHolder(3,4)
+val incremented = holder++
 
 
 
@@ -61,7 +62,7 @@ operator fun NumericHolder.dec(): NumericHolder {
     return NumericHolder(a - 1, b - 1)
 }
 
-val dec = added--
+val dec = holder--
 
 
 
@@ -75,7 +76,7 @@ operator fun NumericHolder.get(i: Int): Int {
 
 
 
-val firstPart = NumericHolder(1, 2)[1]
+val firstPart = holder[0] + holder[1]
 
 
 operator fun NumericHolder.contains(i: Int): Boolean {
@@ -119,24 +120,24 @@ fun rangeExample(){
 
 
 
-    for (e in holderRange) {
-        println(e)
-    }
+//    for (e in holderRange) {
+//        println(e)
+//    }
 }
 
 
-operator fun ClosedRange<NumericHolder>.iterator() =
-    object : Iterator<NumericHolder> {
-        var current = start
-        override fun hasNext(): Boolean {
-            return current < endInclusive
-        }
-
-        override fun next(): NumericHolder {
-            return current++
-        }
-
-    }
+//operator fun ClosedRange<NumericHolder>.iterator() =
+//    object : Iterator<NumericHolder> {
+//        var current = start
+//        override fun hasNext(): Boolean {
+//            return current < endInclusive
+//        }
+//
+//        override fun next(): NumericHolder {
+//            return current++
+//        }
+//
+//    }
 
 
 fun main() {
@@ -149,7 +150,7 @@ fun main() {
 }
 
 class SpecialStringPredicate : (String) -> Boolean {
-    override fun invoke(p1: String): Boolean {
+    override /*operator*/ fun invoke(p1: String): Boolean {
         return p1.length == 5
     }
 

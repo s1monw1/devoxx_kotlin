@@ -68,7 +68,9 @@ class DelegationDemo {
 
 
 
-    var customDelegated by ModifiedDelegate(100) { it * 10 }
+    var customDelegated by ModifiedDelegate(100) {
+        it * 10
+    }
 
 }
 
