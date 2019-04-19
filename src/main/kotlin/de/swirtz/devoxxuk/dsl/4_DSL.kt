@@ -50,16 +50,16 @@ fun main(args: Array<String>) {
         location = "London"
 
         talks {
-            conferenceTalk("Topic2", "Speaker2", LocalDateTime.parse("2018-05-07T15:00"))
-            keynoteTalk("Topic2", "Speaker2", LocalDateTime.parse("2018-05-07T15:00"))
+            conferenceTalk("Kotlin 101", "Speaker1", LocalDateTime.parse("2018-05-07T10:00"))
+            keynoteTalk("Java 101", "Speaker2", LocalDateTime.parse("2018-05-07T15:00"))
 
-            conferenceTalk at "2018-05-07T12:00" by "Speaker1" titled "Topic1"
-            keynoteTalk at "2018-05-07T15:00" by "Speaker2" titled "Topic2"
+            conferenceTalk at "2018-05-08T10:00" by "Speaker3" titled "Cloud"
+            keynoteTalk at "2018-05-07T17:00" by "Speaker4" titled "Machine Learning"
 
-            +Talk("Topic2", "Speaker2", LocalDateTime.parse("2018-05-07T15:00"), TalkType.CONFERENCE)
+            +Talk("Security 101", "Speaker5", LocalDateTime.parse("2018-05-07T15:00"), TalkType.CONFERENCE)
         }
 
-        talks.conferenceTalk("Topic2", "Speaker2", LocalDateTime.parse("2018-05-07T15:00"))
+        talks.conferenceTalk("Why JavaScript sucks", "Speaker6", LocalDateTime.parse("2018-05-07T15:00"))
     }
 
 }
@@ -85,11 +85,12 @@ class ConferenceDSL() {
     lateinit var name: String
     lateinit var location: String
 
-    val talks = TalkConfigDSL(talkList)
+    val talks = TalkConfigDSL()
 
     @ConfDslMarker
-    class TalkConfigDSL(private val talkList: MutableList<Talk>) {
+    inner class TalkConfigDSL() {
 
+        private val talkList = this@ConferenceDSL.talkList
 
         operator fun invoke(config: TalkConfigDSL.() -> Unit) {
             this.apply(config)
@@ -113,15 +114,12 @@ class ConferenceDSL() {
 
 
         val conferenceTalk
-            get() = EmptyTalk(talkList, TalkType.CONFERENCE)
+            get() = EmptyTalk(TalkType.CONFERENCE)
         val keynoteTalk
-            get() = EmptyTalk(talkList, TalkType.KEYNOTE)
+            get() = EmptyTalk(TalkType.KEYNOTE)
 
 
-        class EmptyTalk(
-            val talks: MutableList<Talk>,
-            val type: TalkType
-        ) {
+        inner class EmptyTalk(val type: TalkType) {
             infix fun at(timeString: String) =
                 TimedTalk(this, LocalDateTime.parse(timeString))
         }
@@ -129,7 +127,7 @@ class ConferenceDSL() {
 
 
 
-        class TimedTalk(
+        inner class TimedTalk(
             val previous: EmptyTalk,
             val time: LocalDateTime) {
             infix fun by(speaker: String) =
@@ -139,12 +137,12 @@ class ConferenceDSL() {
 
 
 
-        class TimedAndAuthoredTalk(
+        inner class TimedAndAuthoredTalk(
             private val previous: TimedTalk,
             private val speaker: String
         ) {
             infix fun titled(topic: String) =
-                previous.previous.talks.add(
+                talkList.add(
                     Talk(topic, speaker, previous.time, previous.previous.type)
                 )
         }
@@ -153,8 +151,6 @@ class ConferenceDSL() {
 
          //member extension function
         operator fun Talk.unaryPlus() = talkList.add(this)
-
-
 
     }
 

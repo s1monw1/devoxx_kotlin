@@ -62,8 +62,7 @@ fun getParseableNumber(number: String): ParsableNumber {
 }
 
 fun main() {
-    println(getParseableNumber("100.12212").parsed)
-    println(getParseableNumber("100.145").parsed)
-    println(getParseableNumber("100.0").parsed)
-    println(getParseableNumber("100.0").original)
+    val parsable = getParseableNumber("100.012")
+    println(parsable.parsed)
+    println(parsable.original)
 }

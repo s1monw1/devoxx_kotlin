@@ -46,7 +46,8 @@ fun <T> Collection<T>?.isNullOrEmpty(): Boolean {
 
 
 
-@ExperimentalContracts
+
+@UseExperimental(ExperimentalContracts::class)
 fun <T> Collection<T>?.isNullOrEmptyContract(): Boolean {
     contract {
         returns(false) implies (this@isNullOrEmptyContract != null)
@@ -73,7 +74,7 @@ inline fun <T, R> T.let(block: (T) -> R): R {
 
 
 
-@ExperimentalContracts
+@UseExperimental(ExperimentalContracts::class)
 inline fun <T, R> T.letContract(block: (T) -> R): R {
     contract {
         callsInPlace(block, InvocationKind.EXACTLY_ONCE)

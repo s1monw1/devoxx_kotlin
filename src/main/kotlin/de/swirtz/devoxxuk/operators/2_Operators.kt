@@ -4,7 +4,7 @@ package de.swirtz.devoxxuk.operators
 
 //Operators and conventions
 
-data class NumericHolder(val a: Int, val b: Int) : Comparable<NumericHolder>{
+data class NumericHolder(val a: Int, val b: Int): Comparable<NumericHolder>{
     override fun compareTo(other: NumericHolder): Int {
         TODO("not implemented")
     }
@@ -76,7 +76,7 @@ operator fun NumericHolder.get(i: Int): Int {
 
 
 
-val firstPart = holder[0] + holder[1]
+val valuesSum = holder[0] + holder[1]
 
 
 operator fun NumericHolder.contains(i: Int): Boolean {
@@ -143,7 +143,7 @@ fun rangeExample(){
 fun main() {
 
     //destructuring convention: componentX
-    val (a,b) = subtracted
+    val (a, b) = subtracted
 
     val predicate = SpecialStringPredicate()
     predicate("string123")

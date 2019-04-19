@@ -12,7 +12,8 @@ tasks.withType<KotlinCompile> {
     kotlinOptions.jvmTarget = "1.8"
     kotlinOptions.freeCompilerArgs += listOf(
         "-XXLanguage:+InlineClasses,+Contracts",
-        "-Xuse-experimental=kotlin.contracts.ExperimentalContracts"
+        "-Xuse-experimental=kotlin.contracts.ExperimentalContracts",
+        "-Xuse-experimental=kotlin.Experimental"
     )
 }
 

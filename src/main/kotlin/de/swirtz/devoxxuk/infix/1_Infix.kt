@@ -68,7 +68,7 @@ fun <T> List<T>.combineWith(other: List<T>): List<T> {
 }
 
 
-val all = listOf(1, 2, 3, 4, 5).combineWith(listOf(5, 6, 7, 8))
+val all = listOf(1, 2, 3).combineWith(listOf(5, 6))
 
 
 

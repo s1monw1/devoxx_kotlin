@@ -17,13 +17,10 @@ class DelegationDemo {
         println("class initialized")
     }
 
-    val lazyOne by lazy {
+    val lazyOne: Int by lazy {
         println("lazy init")
         (0..1000).random()
     }
-
-
-
 
 
 
@@ -102,7 +99,6 @@ fun main(args: Array<String>) {
     delegation.lazyOne
 
     delegation.observedProp = 20
-    println(delegation.observedProp)
 
     delegation.verifiedProp = 6
     delegation.verifiedProp = 11

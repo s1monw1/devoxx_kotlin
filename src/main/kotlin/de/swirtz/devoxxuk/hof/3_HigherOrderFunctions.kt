@@ -45,7 +45,8 @@ fun calculateNoInline(param: Int, operation: IntMapper): Int {
 
 
 
-// - you can inline when param is called or passed to other !inline! function,
+// - you can inline when function type param is called or
+//      passed to other !inline! function,
 
 
 
