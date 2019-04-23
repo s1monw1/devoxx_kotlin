@@ -72,6 +72,10 @@ class DelegationDemo {
 }
 
 
+/**
+ * You can implement [kotlin.properties.ReadOnlyProperty] or
+ * [kotlin.properties.ReadWriteProperty] (or none)
+ */
 class ModifiedDelegate<T>(
     initValue: T,
     val modifier: (T) -> T

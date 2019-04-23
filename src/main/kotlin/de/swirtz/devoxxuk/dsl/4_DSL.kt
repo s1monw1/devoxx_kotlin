@@ -41,8 +41,8 @@ fun main(args: Array<String>) {
 
 
 
-    //we can use apply and similar to make this cleaner.
-    //But we want to go a step further
+    //we could use apply to make this code cleaner.
+    //but we want to go a step further...
 
 
     conference {
@@ -51,12 +51,12 @@ fun main(args: Array<String>) {
 
         talks {
             conferenceTalk("Kotlin 101", "Speaker1", LocalDateTime.parse("2018-05-07T10:00"))
-            keynoteTalk("Java 101", "Speaker2", LocalDateTime.parse("2018-05-07T15:00"))
+            keynoteTalk("Humour That Works", "Speaker2", LocalDateTime.parse("2018-05-07T15:00"))
 
-            conferenceTalk at "2018-05-08T10:00" by "Speaker3" titled "Cloud"
-            keynoteTalk at "2018-05-07T17:00" by "Speaker4" titled "Machine Learning"
+            conferenceTalk at "2018-05-08T10:00" by "Speaker3" titled "The Cloud"
+            keynoteTalk at "2018-05-07T17:00" by "Speaker4" titled "Infrastructure Craftsmanship"
 
-            +Talk("Security 101", "Speaker5", LocalDateTime.parse("2018-05-07T15:00"), TalkType.CONFERENCE)
+            +Talk("Security 101", "Speaker5", LocalDateTime.parse("2018-05-07T15:00"))
         }
 
         talks.conferenceTalk("Why JavaScript sucks", "Speaker6", LocalDateTime.parse("2018-05-07T15:00"))

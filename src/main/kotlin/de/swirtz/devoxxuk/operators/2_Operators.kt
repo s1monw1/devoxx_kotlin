@@ -2,11 +2,9 @@ package de.swirtz.devoxxuk.operators
 
 // @formatter:off
 
-//Operators and conventions
-
 data class NumericHolder(val a: Int, val b: Int): Comparable<NumericHolder>{
     override fun compareTo(other: NumericHolder): Int {
-        TODO("not implemented")
+        return (a + b).compareTo(other.a + other.b)
     }
 }
 
@@ -104,7 +102,7 @@ val invoked = added()
  * Redundant since type is a `Comparable<NumericHolder> already
  */
 operator fun NumericHolder.compareTo(other: NumericHolder): Int {
-    return (a + b).compareTo(other.a + other.b)
+    return this.compareTo(other)
 }
 
 
@@ -115,7 +113,7 @@ val lessEq = added <= subtracted
 
 fun rangeExample(){
 
-    // uses extension operator `Comparable<T>::rangeTo`
+//    uses extension operator `Comparable<T>::rangeTo`
     val holderRange = subtracted..added
 
 

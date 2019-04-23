@@ -58,9 +58,8 @@ val devoxxCities3 = mapOf(
 
 
 
-//Custom function
 fun <T> List<T>.combineWith(other: List<T>): List<T> {
-    //naive implementation, improve later!
+    // naive implementation
     val combined = mutableListOf<T>()
     combined.addAll(this)
     combined.addAll(other)
@@ -73,7 +72,9 @@ val all = listOf(1, 2, 3).combineWith(listOf(5, 6))
 
 
 
-
-infix fun <T> List<T>.combineWithImproved(other: List<T>): List<T> {
+/**
+ * Better approach to combine lists
+ */
+infix fun <T> List<T>.improvedCombineWith(other: List<T>): List<T> {
     return this + other
 }

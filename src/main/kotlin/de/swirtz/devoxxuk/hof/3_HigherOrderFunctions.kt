@@ -3,7 +3,6 @@ package de.swirtz.devoxxuk.hof
 import java.io.FileInputStream
 import java.util.concurrent.locks.ReentrantLock
 
-
 // @formatter:off
 
 
@@ -58,7 +57,9 @@ fun calculateNoInline(param: Int, operation: IntMapper): Int {
 
 
 
-
+/**
+ * higher order function as extension function
+ */
 inline fun Int.calculateSelf(operation: IntMapper) = operation(this)
 
 
@@ -126,7 +127,7 @@ fun controlFlowLocal() {
 }
 
 
-fun stdLibExamples() {
+fun `other standard lib examples`() {
     synchronized(ReentrantLock()) {
         println("do stuff")
         "return_value"

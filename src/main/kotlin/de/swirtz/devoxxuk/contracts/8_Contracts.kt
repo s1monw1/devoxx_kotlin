@@ -4,7 +4,6 @@ import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind
 import kotlin.contracts.contract
 
-
 // @formatter:off
 
 fun process(data: List<String>?) {

@@ -50,6 +50,10 @@ fun parseNumber(number: String): BigDecimal {
 }
 
 
+/**
+ * Changed requirement: We want to preserve the original value
+ */
+
 
 inline class ParsableNumber(val original: String) {
 
@@ -57,12 +61,9 @@ inline class ParsableNumber(val original: String) {
         get() = original.toBigDecimal().setScale(2, RoundingMode.HALF_UP)
 }
 
-fun getParseableNumber(number: String): ParsableNumber {
-    return ParsableNumber(number)
-}
 
 fun main() {
-    val parsable = getParseableNumber("100.012")
+    val parsable = ParsableNumber("100.012")
     println(parsable.parsed)
     println(parsable.original)
 }
