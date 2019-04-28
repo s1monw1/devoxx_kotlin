@@ -2,6 +2,7 @@ package de.swirtz.devoxxuk.operators
 
 // @formatter:off
 
+// Wraps two Ints
 data class NumericHolder(val a: Int, val b: Int): Comparable<NumericHolder>{
     override fun compareTo(other: NumericHolder): Int {
         return (a + b).compareTo(other.a + other.b)

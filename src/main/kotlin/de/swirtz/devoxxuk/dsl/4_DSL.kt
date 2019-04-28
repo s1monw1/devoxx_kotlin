@@ -41,8 +41,8 @@ fun main(args: Array<String>) {
 
 
 
-    //we could use apply to make this code cleaner.
-    //but we want to go a step further...
+    // we could use apply to make this code cleaner.
+    // but we want to go a step further...
 
 
     conference {

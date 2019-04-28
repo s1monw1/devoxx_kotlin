@@ -7,9 +7,11 @@ import kotlin.reflect.KProperty
 // @formatter:off
 
 
-//  ***************************************
-//  Delegated Properties: delegating accessor logic to some helper
-//  ***************************************
+/*
+ ***************************************
+  Delegated Properties: delegating accessor logic to some helper
+ ***************************************
+*/
 
 class DelegationDemo {
 
@@ -74,7 +76,7 @@ class DelegationDemo {
 
 /**
  * You can implement [kotlin.properties.ReadOnlyProperty] or
- * [kotlin.properties.ReadWriteProperty] (or none)
+ * [kotlin.properties.ReadWriteProperty] or none
  */
 class ModifiedDelegate<T>(
     initValue: T,

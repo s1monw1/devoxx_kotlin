@@ -38,20 +38,22 @@ fun authenticate(user: Name, password: Password) {}
 fun useAuthenticateInline(){
     //more type safety
     authenticate(Name("paul"), Password("123456"))
+
+    //won't compile
     //authenticate(Password("123456"),Name("paul"))
 }
 
 
-/**
- * parses string number into BigDecimal with a scale of 2
+/*
+   parses string number into BigDecimal with a scale of 2
  */
 fun parseNumber(number: String): BigDecimal {
     return number.toBigDecimal().setScale(2, RoundingMode.HALF_UP)
 }
 
 
-/**
- * Changed requirement: We want to preserve the original value
+/*
+   Changed requirement: We want to preserve the original value
  */
 
 

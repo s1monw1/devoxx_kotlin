@@ -5,7 +5,7 @@ val kotlinVersion = plugins.getPlugin(KotlinPluginWrapper::class.java).kotlinPlu
 val kotlinxCoroutinesVersion = "1.1.1"
 
 plugins {
-    kotlin("jvm") version "1.3.30"
+    kotlin("jvm") version "1.3.31"
 }
 
 tasks.withType<KotlinCompile> {
