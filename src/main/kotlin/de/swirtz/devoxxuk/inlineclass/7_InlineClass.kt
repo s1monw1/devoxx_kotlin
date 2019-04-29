@@ -40,7 +40,7 @@ fun useAuthenticateInline(){
     authenticate(Name("paul"), Password("123456"))
 
     //won't compile
-    //authenticate(Password("123456"),Name("paul"))
+    //authenticate(Password("123456"), Name("paul"))
 }
 
 

@@ -87,7 +87,7 @@ fun controlFlow() {
  What will be printed by controlFlow?
 
 
- => nothing, non-local `return
+ => nothing, non-local `return`
 
  ! Can be fixed with labels !
 
