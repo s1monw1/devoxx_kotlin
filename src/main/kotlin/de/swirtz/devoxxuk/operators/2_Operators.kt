@@ -114,7 +114,7 @@ val lessEq = added <= subtracted
 
 fun rangeExample(){
 
-//    uses extension operator `Comparable<T>::rangeTo`
+    // uses extension operator `Comparable<T>::rangeTo`
     val holderRange = subtracted..added
 
 
