@@ -146,6 +146,3 @@ fun `other standard lib examples`() {
         .map { it * 2 }
         .joinToString()
 }
-
-
-

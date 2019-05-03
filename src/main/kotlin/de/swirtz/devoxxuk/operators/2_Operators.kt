@@ -137,20 +137,3 @@ fun rangeExample(){
 //        }
 //
 //    }
-
-
-fun main() {
-
-    //destructuring convention: componentX
-    val (a, b) = subtracted
-
-    val predicate = SpecialStringPredicate()
-    predicate("string123")
-}
-
-class SpecialStringPredicate : (String) -> Boolean {
-    override /*operator*/ fun invoke(p1: String): Boolean {
-        return p1.length == 5
-    }
-
-}
