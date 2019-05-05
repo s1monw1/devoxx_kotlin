@@ -36,6 +36,7 @@ inline fun calculateInline(param: Int, operation: IntMapper): Int {
 
 fun calculateNoInline(param: Int, operation: IntMapper): Int {
     val o = operation
+    //...
     return o(param)
 }
 

@@ -31,7 +31,7 @@ class DelegationDemo {
 
 
     fun usingLazyLocally(computation: () -> String) {
-        val v by lazy { computation() }
+        val lazyLocal by lazy { computation() }
 
     }
 
