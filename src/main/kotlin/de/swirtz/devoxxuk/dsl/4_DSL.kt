@@ -81,7 +81,11 @@ inline fun conference(config: ConferenceDSL.() -> Unit): Conference {
 @ConfDslMarker
 class ConferenceDSL() {
 
-    val talkList = mutableListOf<Talk>()
+    private val _talkList = mutableListOf<Talk>()
+
+    val talkList
+        get() = _talkList.toList()
+
     lateinit var name: String
     lateinit var location: String
 
@@ -90,7 +94,7 @@ class ConferenceDSL() {
     @ConfDslMarker
     inner class TalkConfigDSL() {
 
-        private val talkList = this@ConferenceDSL.talkList
+        private val _talkList = this@ConferenceDSL._talkList
 
         operator fun invoke(config: TalkConfigDSL.() -> Unit) {
             this.apply(config)
@@ -102,13 +106,13 @@ class ConferenceDSL() {
 
 
         fun conferenceTalk(topic: String, speaker: String, time: LocalDateTime) {
-            talkList.add(Talk(topic, speaker, time, TalkType.CONFERENCE))
+            _talkList.add(Talk(topic, speaker, time, TalkType.CONFERENCE))
         }
 
 
 
         fun keynoteTalk(topic: String, speaker: String, time: LocalDateTime) {
-            talkList.add(Talk(topic, speaker, time, TalkType.KEYNOTE))
+            _talkList.add(Talk(topic, speaker, time, TalkType.KEYNOTE))
         }
 
 
@@ -142,7 +146,7 @@ class ConferenceDSL() {
             private val speaker: String
         ) {
             infix fun titled(topic: String) =
-                talkList.add(
+                _talkList.add(
                     Talk(topic, speaker, previous.time, previous.previous.type)
                 )
         }
@@ -150,7 +154,7 @@ class ConferenceDSL() {
 
 
          //member extension function
-        operator fun Talk.unaryPlus() = talkList.add(this)
+        operator fun Talk.unaryPlus() = _talkList.add(this)
 
     }
 

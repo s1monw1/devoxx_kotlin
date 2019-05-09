@@ -67,7 +67,7 @@ class DelegationDemo {
 
 
 
-    var customDelegated by ModifiedDelegate(100) {
+    var customDelegated by ModifyingDelegate(100) {
         it * 10
     }
 
@@ -78,7 +78,7 @@ class DelegationDemo {
  * You can implement [kotlin.properties.ReadOnlyProperty] or
  * [kotlin.properties.ReadWriteProperty] or none
  */
-class ModifiedDelegate<T>(
+class ModifyingDelegate<T>(
     initValue: T,
     val modifier: (T) -> T
 ): ReadWriteProperty<Any?, T> {
