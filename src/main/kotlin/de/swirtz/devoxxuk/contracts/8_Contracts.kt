@@ -33,7 +33,6 @@ fun process(data: List<String>?) {
 
 
 
-@UseExperimental(ExperimentalContracts::class)
 fun <T> Collection<T>?.isNullOrEmpty(): Boolean {
 
     return this == null || this.isEmpty()
@@ -46,7 +45,6 @@ fun <T> Collection<T>?.isNullOrEmpty(): Boolean {
 
 
 
-@UseExperimental(ExperimentalContracts::class)
 inline fun <T, R> T.let(block: (T) -> R): R {
 
     return block(this)
