@@ -4,7 +4,7 @@ package de.swirtz.devoxxuk.hof
 
 
 
-fun <T> List<T>.doStuff(ops: (List<T>) -> Unit) {
+fun <T> List<T>.doStuff(ops: List<T>.() -> Unit) {
     ops(this)
 }
 
@@ -32,9 +32,9 @@ fun <T> List<T>.doStuff(ops: (List<T>) -> Unit) {
 fun main() {
     val lst = listOf(1, 2, 3)
     lst.doStuff {
-        println(it.size)
-        println(it.first())
-        println(it.last())
+        println(size)
+        println(first())
+        println(last())
     }
 
 

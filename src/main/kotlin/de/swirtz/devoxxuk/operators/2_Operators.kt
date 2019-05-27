@@ -119,7 +119,20 @@ fun rangeExample(){
 
 
 
-//    for (e in holderRange) {
-//        println(e)
-//    }
+    for (e in holderRange) {
+        println(e)
+    }
 }
+
+operator fun ClosedRange<NumericHolder>.iterator() =
+    object : Iterator<NumericHolder> {
+        var current = start
+        override fun hasNext(): Boolean {
+            return current < endInclusive
+        }
+
+        override fun next(): NumericHolder {
+            return current++
+        }
+
+    }

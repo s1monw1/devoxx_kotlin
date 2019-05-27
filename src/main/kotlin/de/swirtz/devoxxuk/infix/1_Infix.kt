@@ -26,7 +26,6 @@ val devoxxCities = mapOf(
 
 
 
-
 // No magic keyword - Make it more explicit
 val devoxxCities2 = mapOf(
     "uk".to("london"),
@@ -58,7 +57,7 @@ val devoxxCities3 = mapOf(
 
 
 // A custom function
-fun <T> List<T>.combineWith(other: List<T>): List<T> {
+infix fun <T> List<T>.combineWith(other: List<T>): List<T> {
     // naive implementation
     val combined = mutableListOf<T>()
     combined.addAll(this)
@@ -68,7 +67,7 @@ fun <T> List<T>.combineWith(other: List<T>): List<T> {
 
 
 val all =
-    listOf(1, 2, 3).combineWith(listOf(5, 6))
+    listOf(1, 2, 3) combineWith listOf(5, 6)
 
 
 

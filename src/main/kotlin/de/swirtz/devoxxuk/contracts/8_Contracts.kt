@@ -8,7 +8,7 @@ import kotlin.contracts.contract
 
 fun process(data: List<String>?) {
     if (!data.isNullOrEmpty()) {
-        //println(data.size)
+        println(data.size)
 
 
 
@@ -22,7 +22,7 @@ fun process(data: List<String>?) {
 
         val someElement: String
         data.let {
-            //someElement = it.last()
+            someElement = it.last()
         }
 
 
@@ -33,8 +33,11 @@ fun process(data: List<String>?) {
 
 
 
+@UseExperimental(ExperimentalContracts::class)
 fun <T> Collection<T>?.isNullOrEmpty(): Boolean {
-
+    contract {
+        returns(false) implies (this@isNullOrEmpty != null)
+    }
     return this == null || this.isEmpty()
 }
 
@@ -45,7 +48,10 @@ fun <T> Collection<T>?.isNullOrEmpty(): Boolean {
 
 
 
+@UseExperimental(ExperimentalContracts::class)
 inline fun <T, R> T.let(block: (T) -> R): R {
-
+    contract {
+        callsInPlace(block, InvocationKind.EXACTLY_ONCE)
+    }
     return block(this)
 }
