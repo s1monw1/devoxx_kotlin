@@ -5,10 +5,10 @@ package de.swirtz.advancedkotlin.infix
 
 
 // What is `to`?
-val devoxxCities = mapOf(
+val droidconCities = mapOf(
     "uk" to "london",
-    "belgium" to "antwerp",
-    "ukraine" to "kyiv"
+    "usa" to "new york",
+    "germany" to "berlin"
     //more
 )
 
@@ -27,10 +27,10 @@ val devoxxCities = mapOf(
 
 
 // No magic keyword - Make it more explicit
-val devoxxCities2 = mapOf(
+val droidconCities2 = mapOf(
     "uk".to("london"),
-    "belgium".to("antwerp"),
-    "ukraine".to("kyiv")
+    "usa".to("new york"),
+    "germany".to("berlin")
     //more
 )
 
@@ -42,8 +42,8 @@ val devoxxCities2 = mapOf(
 // What's really happening
 val devoxxCities3 = mapOf(
     Pair("uk", "london"),
-    Pair("belgium", "antwerp"),
-    Pair("ukraine", "kyiv")
+    Pair("usa", "new york"),
+    Pair("germany", "berlin")
     //more
 )
 

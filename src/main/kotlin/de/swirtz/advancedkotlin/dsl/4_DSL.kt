@@ -33,11 +33,11 @@ data class Talk(
 
 
 fun main(args: Array<String>) {
-    val devoxx = Conference("Devoxx UK 2019", "London")
+    val droidcon = Conference("Droidcon NYC 2019", "London")
     val t1 = Talk("Topic1", "Speaker1", LocalDateTime.parse("2018-05-07T12:00"))
     val t2 = Talk("Topic2", "Speaker2", LocalDateTime.parse("2018-05-07T15:00"))
-    devoxx.addTalk(t1)
-    devoxx.addTalk(t2)
+    droidcon.addTalk(t1)
+    droidcon.addTalk(t2)
 
 
 
@@ -46,8 +46,8 @@ fun main(args: Array<String>) {
 
 
     conference {
-        name = "Devoxx UK 2019"
-        location = "London"
+        name = "Droidcon NYC 2019"
+        location = "New York City"
 
         talks {
             conferenceTalk("Kotlin 101", "Speaker1", LocalDateTime.parse("2018-05-07T10:00"))
@@ -59,7 +59,7 @@ fun main(args: Array<String>) {
             +Talk("Security 101", "Speaker5", LocalDateTime.parse("2018-05-07T15:00"))
         }
 
-        talks.conferenceTalk("Why JavaScript sucks", "Speaker6", LocalDateTime.parse("2018-05-07T15:00"))
+        talks.conferenceTalk("Why Java sucks", "Speaker6", LocalDateTime.parse("2018-05-07T15:00"))
     }
 
 }
