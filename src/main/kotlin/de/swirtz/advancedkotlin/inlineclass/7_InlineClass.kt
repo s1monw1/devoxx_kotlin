@@ -1,4 +1,4 @@
-package de.swirtz.devoxxuk.inlineclass
+package de.swirtz.advancedkotlin.inlineclass
 
 // @formatter:off
 

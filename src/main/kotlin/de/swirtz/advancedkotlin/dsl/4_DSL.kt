@@ -1,4 +1,4 @@
-package de.swirtz.devoxxuk.dsl
+package de.swirtz.advancedkotlin.dsl
 
 import java.time.LocalDateTime
 

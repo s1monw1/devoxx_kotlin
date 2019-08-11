@@ -1,4 +1,4 @@
-package de.swirtz.devoxxuk.infix
+package de.swirtz.advancedkotlin.infix
 
 // @formatter:off
 
