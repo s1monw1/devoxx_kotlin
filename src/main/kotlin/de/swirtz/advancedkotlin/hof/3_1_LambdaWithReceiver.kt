@@ -4,7 +4,7 @@ package de.swirtz.advancedkotlin.hof
 
 
 
-fun <T> List<T>.doStuff(ops: List<T>.() -> Unit) {
+fun <T> List<T>.doStuff(ops: (List<T>) -> Unit) {
     ops(this)
 }
 
@@ -32,9 +32,9 @@ fun <T> List<T>.doStuff(ops: List<T>.() -> Unit) {
 fun main() {
     val lst = listOf(1, 2, 3)
     lst.doStuff {
-        println(size)
-        println(first())
-        println(last())
+        println(it.size)
+        println(it.first())
+        println(it.last())
     }
 
 

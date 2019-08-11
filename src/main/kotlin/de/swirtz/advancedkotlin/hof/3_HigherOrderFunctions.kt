@@ -34,7 +34,7 @@ inline fun calculateInline(param: Int, operation: IntMapper): Int {
 
 
 
-fun calculateNoInline(param: Int, operation: IntMapper): Int {
+inline fun calculateNoInline(param: Int, noinline operation: IntMapper): Int {
     val o = operation
     //...
     return o(param)
@@ -127,7 +127,7 @@ fun controlFlowLocal() {
 
 
     calculate(5) {
-        return@calculate it * 10
+        return@calculate  it * 10
     }
 }
 
