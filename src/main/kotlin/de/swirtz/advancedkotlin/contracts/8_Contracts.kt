@@ -1,4 +1,4 @@
-package de.swirtz.devoxxuk.contracts
+package de.swirtz.advancedkotlin.contracts
 
 import kotlin.contracts.ExperimentalContracts
 import kotlin.contracts.InvocationKind

@@ -1,4 +1,4 @@
-package de.swirtz.devoxxuk.hof
+package de.swirtz.advancedkotlin.hof
 
 // @formatter:off
 

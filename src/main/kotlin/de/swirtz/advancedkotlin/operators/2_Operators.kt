@@ -1,4 +1,4 @@
-package de.swirtz.devoxxuk.operators
+package de.swirtz.advancedkotlin.operators
 
 // @formatter:off
 

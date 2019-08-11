@@ -1,4 +1,4 @@
-package de.swirtz.devoxxuk.delegates
+package de.swirtz.advancedkotlin.delegates
 
 import kotlin.properties.Delegates
 import kotlin.properties.ReadWriteProperty

@@ -1,4 +1,4 @@
-package de.swirtz.devoxxuk.generics
+package de.swirtz.advancedkotlin.generics
 
 
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
