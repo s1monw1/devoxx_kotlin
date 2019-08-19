@@ -33,7 +33,7 @@ data class Talk(
 
 
 fun main(args: Array<String>) {
-    val droidcon = Conference("Droidcon NYC 2019", "London")
+    val droidcon = Conference("Droidcon NYC 2019", "New York City")
     val t1 = Talk("Topic1", "Speaker1", LocalDateTime.parse("2018-05-07T12:00"))
     val t2 = Talk("Topic2", "Speaker2", LocalDateTime.parse("2018-05-07T15:00"))
     droidcon.addTalk(t1)

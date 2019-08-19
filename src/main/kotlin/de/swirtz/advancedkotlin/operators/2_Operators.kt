@@ -2,7 +2,6 @@ package de.swirtz.advancedkotlin.operators
 
 // @formatter:off
 
-// Wraps two Ints
 data class NumericHolder(val a: Int, val b: Int)
 
 
@@ -97,7 +96,7 @@ val invoked = added()
 
 
 operator fun NumericHolder.compareTo(other: NumericHolder): Int {
-    return this.compareTo(other)
+    return (this.a + this.b).compareTo(other.a + other.b)
 }
 
 

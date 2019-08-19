@@ -21,6 +21,8 @@ fun calculate(param: Int, operation: IntMapper): Int {
 
 
 
+val calcResult = calculate(5) { it * 2 } //=> 10
+
 
 
 
@@ -34,7 +36,7 @@ inline fun calculateInline(param: Int, operation: IntMapper): Int {
 
 
 
-inline fun calculateNoInline(param: Int, noinline operation: IntMapper): Int {
+fun calculateNoInline(param: Int, operation: IntMapper): Int {
     val o = operation
     //...
     return o(param)
@@ -62,6 +64,9 @@ inline fun calculateNoInline(param: Int, noinline operation: IntMapper): Int {
 // higher order function as extension function
 inline fun Int.calculateSelf(operation: IntMapper) = operation(this)
 
+
+
+val calcSelfResult = 5.calculateSelf { it * 2 } //=> 10
 
 //____________________________________________________________________________________________________________
 
@@ -127,7 +132,7 @@ fun controlFlowLocal() {
 
 
     calculate(5) {
-        return@calculate  it * 10
+        return@calculate  it * 2
     }
 }
 
