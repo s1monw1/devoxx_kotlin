@@ -5,7 +5,7 @@ val kotlinVersion = plugins.getPlugin(KotlinPluginWrapper::class.java).kotlinPlu
 val kotlinxCoroutinesVersion = "1.1.1"
 
 plugins {
-    kotlin("jvm") version "1.3.41"
+    kotlin("jvm") version "1.3.50"
 }
 
 tasks.withType<KotlinCompile> {
@@ -19,8 +19,8 @@ tasks.withType<KotlinCompile> {
 
 
 dependencies {
-    compile(kotlin("stdlib-jdk8", kotlinVersion))
-    compile(kotlin("reflect", kotlinVersion))
+    compile(kotlin("stdlib-jdk8"))
+    compile(kotlin("reflect"))
     compile("org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinxCoroutinesVersion")
     compile("org.slf4j:slf4j-api:1.7.14")
     compile("ch.qos.logback:logback-classic:1.1.3")

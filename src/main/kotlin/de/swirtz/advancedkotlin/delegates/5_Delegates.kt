@@ -98,7 +98,7 @@ class ModifyingDelegate<T>(
 }
 
 
-fun main(args: Array<String>) {
+fun main() {
     val delegation = DelegationDemo()
     println("created object")
     delegation.lazyOne
