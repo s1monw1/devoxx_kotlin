@@ -76,7 +76,7 @@ operator fun NumericHolder.contains(i: Int): Boolean {
     return a == i || b == i
 }
 
-val pred = 5 !in added
+val pred = 5 in added
 
 
 
