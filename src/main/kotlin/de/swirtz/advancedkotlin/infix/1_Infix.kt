@@ -26,7 +26,7 @@ val droidconCities = mapOf(
 
 
 
-// No magic keyword - Make it more explicit
+// No magic keyword - Let's make it more explicit
 val droidconCities2 = mapOf(
     "uk".to("london"),
     "usa".to("new york"),

@@ -35,7 +35,7 @@ inline fun calculateInline(param: Int, operation: IntMapper): Int {
 
 
 
- fun calculateNoInline(param: Int, operation: IntMapper): Int {
+fun calculateNoInline(param: Int, operation: IntMapper): Int {
     val o = operation
     //...
     return o(param)
@@ -44,10 +44,10 @@ inline fun calculateInline(param: Int, operation: IntMapper): Int {
 
 /*
 
- Why noinline? inline has restrictions:
+ Why `noinline`? Because `inline has restrictions:
 
- - you can inline when function type param is called or
-      passed to other !inline! function,
+ - you can inline when function type parameter is called directly or
+      passed to other `inline` function,
 
 
  - you _cannot_ inline when function is being assigned to variable e.g.
@@ -125,8 +125,9 @@ fun controlFlowLocal() {
     println("done")
 
 
-    /*  ***************************************
-      _Rule_: `return` returns from the closest
+    /*
+      ***************************************
+      Rule: `return` returns from the closest
       function declared with the `fun` keyword
       ***************************************
     */
